@@ -1,6 +1,6 @@
 # Workout Tracker
 
-Easily Track your workouts!
+Easily Track your workouts! [Deployment](https://track-workout-app.herokuapp.com/)
 
 ## Description
 
@@ -17,7 +17,7 @@ This app helps you to organize your workouts. You can enter in different types o
 
 ## Installation
 
-Click on the deployed link here
+Click on the deployed link here [Deployment](https://track-workout-app.herokuapp.com/)
 
 ## Usage
 
