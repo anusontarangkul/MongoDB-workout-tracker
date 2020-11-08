@@ -25,8 +25,36 @@ router.post('/api/workouts', (req, res) => {
 
 // Add exercises to a previous workout plan
 
-// Add new exercises to a new workout plan.
+router.put('/api/workouts/:id', ({ body, params }, res) => {
+    Workout.findByIdAndUpdate(params.id, { $push: { exercises: body } }, { new: true, runValidators: true })
+        .then(workout_db => {
+            res.json(workout_db);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+})
 
-//View the combined weight of multiple exercises on the stats pag
+router.get('/api/workouts/range', (req, res) => {
+    Workout.find({}).limit(5)
+        .then(workout_db => {
+            res.json(workout_db);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+
+})
+
+router.delete('/api/workouts', ({ body }, res) => {
+    Workout.findByIdAndDelete(body.id)
+        .then(() => {
+            res.json(true);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+})
+
 
 module.exports = router;
